@@ -36,7 +36,7 @@ class DebugPlugin extends LinkitPlugin {
 
         //val pool       = WorkerPools.currentPool.get
         val controller = new SimpleWorkerController()
-        controller.pauseCurrentTask(1000)
+        //controller.pauseCurrentTask(1000)
         val testServerConnection = getContext.getConnection("TestServer1").get
         val globalCache          = testServerConnection.network.cache
 
