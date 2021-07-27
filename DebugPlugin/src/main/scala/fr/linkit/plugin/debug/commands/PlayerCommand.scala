@@ -47,15 +47,21 @@ class PlayerCommand(cacheHandler: SharedCacheManager, currentIdentifier: String)
         //println(s"players.toSeq = ${players}")
         //println(s"players.getChoreographer.isMethodExecutionForcedToLocal = ${players.getChoreographer.isMethodExecutionForcedToLocal}")
         order match {
-            case "test"   =>
-                println(s"Thread.currentThread() = ${Thread.currentThread()}")
-                println(s"players.getClass.getDeclaredFields = ${players.getClass.getDeclaredFields}")
             case "create" => createPlayer(args.drop(1)) //remove first arg which is obviously 'create'
             case "update" => updatePlayer(args.drop(1)) //remove first arg which is obviously 'update'
-            case "list"   => println(s"players: $players")
+            case "reinject" => reInjectPlayer(args.drop(1)) //remove first arg which is obviously 'update'
+            case "list"   =>
+                val content = players.toArray
+                println(s"players: ${content.mkString("ListBuffer(", ", ", ")")}")
             case "desc"   => describePlayerClass()
-            case _        => throw CommandException("usage: player [create|update] [...]")
+            case _        => throw CommandException("usage: player [create|update|reinject|list|desc] [...]")
         }
+    }
+
+    private def reInjectPlayer(args: Array[String]): Unit = {
+        val id = args.head.toInt
+        players += players.find(_.id == id).get
+        println("Player reinjected !")
     }
 
     private def createPlayer(args: Array[String]): Unit = {
@@ -73,7 +79,6 @@ class PlayerCommand(cacheHandler: SharedCacheManager, currentIdentifier: String)
     }
 
     private def describePlayerClass(): Unit = {
-        //println(s"Class ${classOf[Player]}:")
         classOf[Player].getDeclaredFields.foreach(println)
     }
 
