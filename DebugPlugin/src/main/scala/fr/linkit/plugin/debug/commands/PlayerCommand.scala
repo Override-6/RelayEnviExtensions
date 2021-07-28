@@ -14,10 +14,10 @@ package fr.linkit.plugin.debug.commands
 
 import fr.linkit.api.connection.cache.SharedCacheManager
 import fr.linkit.api.connection.cache.repo.description.annotation.InvocationKind
-import fr.linkit.engine.connection.cache.`object`.DefaultEngineObjectCenter
-import fr.linkit.engine.connection.cache.`object`.description.WrapperBehaviorBuilder.MethodControl
-import fr.linkit.engine.connection.cache.`object`.description.annotation.AnnotationBasedMemberBehaviorFactory
-import fr.linkit.engine.connection.cache.`object`.description.{TreeViewDefaultBehavior, WrapperBehaviorBuilder}
+import fr.linkit.engine.connection.cache.obj.DefaultEngineObjectCenter
+import fr.linkit.engine.connection.cache.obj.description.WrapperBehaviorBuilder.MethodControl
+import fr.linkit.engine.connection.cache.obj.description.annotation.AnnotationBasedMemberBehaviorFactory
+import fr.linkit.engine.connection.cache.obj.description.{TreeViewDefaultBehavior, WrapperBehaviorBuilder}
 import fr.linkit.plugin.controller.cli.{CommandException, CommandExecutor, CommandUtils}
 
 import scala.collection.mutable.ListBuffer

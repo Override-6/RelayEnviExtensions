@@ -14,7 +14,7 @@ package fr.linkit.plugin.debug
 
 import fr.linkit.api.local.plugin.LinkitPlugin
 import fr.linkit.api.local.system.AppLogger
-import fr.linkit.engine.connection.cache.`object`.generation.{PuppetWrapperClassGenerator, WrappersClassResource}
+import fr.linkit.engine.connection.cache.obj.generation.{PuppetWrapperClassGenerator, WrappersClassResource}
 import fr.linkit.engine.local.LinkitApplication.getProperty
 import fr.linkit.engine.local.concurrency.pool.SimpleWorkerController
 import fr.linkit.engine.local.resource.external.{LocalResourceFile, LocalResourceFolder}
