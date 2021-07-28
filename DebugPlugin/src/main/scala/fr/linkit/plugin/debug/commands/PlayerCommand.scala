@@ -14,10 +14,10 @@ package fr.linkit.plugin.debug.commands
 
 import fr.linkit.api.connection.cache.SharedCacheManager
 import fr.linkit.api.connection.cache.repo.description.annotation.InvocationKind
-import fr.linkit.engine.connection.cache.repo.DefaultEngineObjectCenter
-import fr.linkit.engine.connection.cache.repo.description.WrapperBehaviorBuilder.MethodControl
-import fr.linkit.engine.connection.cache.repo.description.annotation.AnnotationBasedMemberBehaviorFactory
-import fr.linkit.engine.connection.cache.repo.description.{TreeViewDefaultBehavior, WrapperBehaviorBuilder}
+import fr.linkit.engine.connection.cache.`object`.DefaultEngineObjectCenter
+import fr.linkit.engine.connection.cache.`object`.description.WrapperBehaviorBuilder.MethodControl
+import fr.linkit.engine.connection.cache.`object`.description.annotation.AnnotationBasedMemberBehaviorFactory
+import fr.linkit.engine.connection.cache.`object`.description.{TreeViewDefaultBehavior, WrapperBehaviorBuilder}
 import fr.linkit.plugin.controller.cli.{CommandException, CommandExecutor, CommandUtils}
 
 import scala.collection.mutable.ListBuffer
@@ -61,7 +61,7 @@ class PlayerCommand(cacheHandler: SharedCacheManager, currentIdentifier: String)
     private def reInjectPlayer(args: Array[String]): Unit = {
         val id = args.head.toInt
         players += players.find(_.id == id).get
-        println("Player reinjected !")
+        println("Player re-injected !")
     }
 
     private def createPlayer(args: Array[String]): Unit = {
