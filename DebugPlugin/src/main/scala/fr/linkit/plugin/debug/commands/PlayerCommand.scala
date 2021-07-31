@@ -37,7 +37,7 @@ class PlayerCommand(cacheHandler: SharedCacheManager, currentIdentifier: String)
     }.build
 
     private val repo    = cacheHandler.retrieveCache(50, DefaultSynchronizedObjectCenter[ListBuffer[Player]](tree))
-    private val players = repo.findObject(0).getOrElse(repo.postObject(0, ListBuffer.empty[Player]))
+    private val players = repo.getOrPost(0, ListBuffer.empty[Player])
     println(s"players = ${players}")
     /*println(s"players.getClass.getDeclaredFields = ${players.getClass.getDeclaredFields.mkString("Array(", ", ", ")")}")
     println(s"LOL")*/
