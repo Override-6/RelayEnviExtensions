@@ -14,16 +14,10 @@ package fr.linkit.plugin.debug
 
 import fr.linkit.api.local.plugin.LinkitPlugin
 import fr.linkit.api.local.system.AppLogger
-import fr.linkit.engine.connection.cache.obj.generation.{ObjectWrapperClassClassGenerator, WrappersClassResource}
-import fr.linkit.engine.local.LinkitApplication.getProperty
 import fr.linkit.engine.local.concurrency.pool.SimpleWorkerController
-import fr.linkit.engine.local.resource.external.{LocalResourceFile, LocalResourceFolder}
 import fr.linkit.plugin.controller.ControllerExtension
 import fr.linkit.plugin.controller.cli.CommandManager
 import fr.linkit.plugin.debug.commands.{NetworkCommand, PlayerCommand, RemoteFSACommand}
-
-import java.util
-import scala.collection.mutable.ListBuffer
 
 class DebugPlugin extends LinkitPlugin {
 
