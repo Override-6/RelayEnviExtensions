@@ -18,11 +18,11 @@ import fr.linkit.api.connection.cache.obj.behavior.annotation.{MethodControl => 
 import scala.annotation.meta.setter
 import scala.collection.mutable.ListBuffer
 
-case class Player(@(MC@setter)(BROADCAST) id: Int,
-                  @(MC@setter)(BROADCAST) owner: String,
-                  @(MC@setter)(BROADCAST) var name: String,
-                  @(MC@setter)(BROADCAST) var x: Long,
-                  @(MC@setter)(BROADCAST) var y: Long) extends Serializable {
+case class Player(@(MC@setter)(value = BROADCAST, invokeOnly = true) id: Int,
+                  @(MC@setter)(value = BROADCAST, invokeOnly = true) owner: String,
+                  @(MC@setter)(value = BROADCAST, invokeOnly = true) var name: String,
+                  @(MC@setter)(value = BROADCAST, invokeOnly = true) var x: Long,
+                  @(MC@setter)(value = BROADCAST, invokeOnly = true) var y: Long) extends Serializable {
     var list: ListBuffer[_] = ListBuffer.empty
     def this(other: Player) = {
         this(other.id, other.owner, other.name, other.x, other.y)

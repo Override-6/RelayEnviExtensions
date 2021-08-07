@@ -28,7 +28,7 @@ class PlayerCommand(cacheHandler: SharedCacheManager, currentIdentifier: String)
 
     private val tree = new WrapperBehaviorTreeBuilder(AnnotationBasedMemberBehaviorFactory) {
         behaviors += new WrapperBehaviorBuilder[ListBuffer[Player]]() {
-            annotateAllMethods("+=") and "addOne" by MethodControl(BasicRemoteInvocationRule.BROADCAST, synchronizedParams = Seq(true))
+            annotateAllMethods("+=") and "addOne" by MethodControl(BasicRemoteInvocationRule.BROADCAST, invokeOnly = true, synchronizedParams = Seq(true))
         }
     }.build
 
