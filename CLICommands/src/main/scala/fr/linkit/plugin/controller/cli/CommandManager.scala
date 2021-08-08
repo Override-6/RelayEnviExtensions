@@ -12,14 +12,14 @@
 
 package fr.linkit.plugin.controller.cli
 
-import fr.linkit.api.local.concurrency.Procrastinator
+import fr.linkit.api.local.concurrency.ProcrastinatorControl
 import fr.linkit.api.local.plugin.fragment.PluginFragment
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.util.control.NonFatal
 
-class CommandManager(procrastinator: Procrastinator) extends PluginFragment {
+class CommandManager(procrastinator: ProcrastinatorControl) extends PluginFragment {
 
     private val commands          : mutable.Map[String, CommandExecutor] = mutable.Map.empty
     @volatile private var alive                                          = true
