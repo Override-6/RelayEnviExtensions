@@ -14,7 +14,7 @@ package fr.linkit.plugin.debug.commands
 
 import fr.linkit.api.connection.cache.SharedCacheManager
 import fr.linkit.api.connection.cache.obj.behavior.annotation.BasicInvocationRule
-import fr.linkit.engine.connection.cache.obj.DefaultSynchronizedObjectCenter
+import fr.linkit.engine.connection.cache.obj.DefaultSynchronizedObjectCache
 import fr.linkit.engine.connection.cache.obj.behavior.ObjectBehaviorBuilder.MethodControl
 import fr.linkit.engine.connection.cache.obj.behavior.{AnnotationBasedMemberBehaviorFactory, ObjectBehaviorBuilder, ObjectBehaviorStoreBuilder}
 import fr.linkit.plugin.controller.cli.{CommandException, CommandExecutor, CommandUtils}
@@ -32,7 +32,7 @@ class PlayerCommand(cacheHandler: SharedCacheManager, currentIdentifier: String)
         }
     }.build
 
-    private val repo    = cacheHandler.attachToCache(50, DefaultSynchronizedObjectCenter[ListBuffer[Player]](tree))
+    private val repo    = cacheHandler.attachToCache(50, DefaultSynchronizedObjectCache[ListBuffer[Player]](tree))
     private val players = repo.getOrPost(0)(ListBuffer.empty[Player])
     println(s"players = ${players}")
     /*println(s"players.getClass.getDeclaredFields = ${players.getClass.getDeclaredFields.mkString("Array(", ", ", ")")}")
